@@ -1,0 +1,15 @@
+[build]
+  command = "npm install --include=optional --os=linux --cpu=x64 sharp && npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "20"
+  # npm skips optional deps for other platforms; Netlify builds on linux-x64.
+  npm_config_include = "optional"
+ 
+[functions]
+  external_node_modules = ["sharp"]
+  included_files = ["node_modules/sharp/**/*"]
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"

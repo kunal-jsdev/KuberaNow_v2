@@ -1,0 +1,97 @@
+/*
+ * Mobile-only interleaving of main-panel and sidebar items.
+ *
+ *   M1 M2 S1 M3 S2 M4 S3 ...   (main items 1..LEAD, then alternate S / M x GAP)
+ *
+ * Opt-in: a page marks its root with `data-mobile-interleave` (see
+ * components/layout/MobileInterleaveRoot.tsx). The root's children are the main
+ * items; the widgets rendered by the @sidebar slot are the sidebar items. Pages
+ * without the marker (static pages, ...) and viewports >= md are unaffected.
+ *
+ * How it works: below `md` the layout wrappers become `display: contents`, so
+ * both lists are flex items of the same column, then every item gets an `order`
+ * computed from its own position (`sibling-index()`). No item counts are
+ * hard-coded, so any number of main / sidebar items (and items appended later by
+ * infinite scroll) is handled automatically.
+ *
+ * Browsers without `sibling-index()` (Chrome < 138, Safari < 26.2, Firefox < 154)
+ * are ordered by components/layout/MobileInterleaveFallback.tsx (inline script)
+ * using the same variables.
+ *
+ * To change the pattern, edit the two variables below.
+ */
+@media (max-width: 47.99rem) {
+  .layout-shell {
+    --interleave-lead: 2; /* main items shown before the first sidebar item */
+    --interleave-gap: 1; /* main items between consecutive sidebar items */
+  }
+
+  /* Tag page: keep the heading and the first article grid above the first sidebar item. */
+  .layout-shell:has([data-mobile-interleave][data-source='tag']) {
+    --interleave-lead: 3;
+  }
+
+  .layout-shell:has([data-source='video-detail']) {
+    --interleave-lead: 1;
+  }
+
+  /*
+   * Safety net for browsers without `:has()` (Chrome < 105, Safari < 15.4,
+   * Firefox < 121): none of the rules below apply to them, and the sidebar is
+   * `hidden` on mobile by default. Show it under the main content instead of
+   * losing it (no interleaving there).
+   */
+  @supports not selector(:has(*)) {
+    .layout-aside {
+      display: flex;
+    }
+  }
+
+  .layout-shell:has([data-mobile-interleave]) {
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .layout-shell:has([data-mobile-interleave]) .layout-main,
+  .layout-shell:has([data-mobile-interleave]) .layout-aside,
+  .layout-shell:has([data-mobile-interleave]) .layout-aside-items,
+  .layout-shell:has([data-mobile-interleave]) [data-mobile-interleave] {
+    display: contents;
+  }
+
+  .layout-shell:has([data-mobile-interleave]) [data-mobile-interleave] > *,
+  .layout-shell:has([data-mobile-interleave]) .layout-aside-items > * {
+    margin-block: 0; /* spacing comes from the shell gap */
+  }
+
+  @supports (order: sibling-index()) {
+    /* Main item #i (1-based, ignoring the root's non-item preamble). */
+    .layout-shell:has([data-mobile-interleave]) [data-mobile-interleave] > * {
+      --i: calc(sibling-index() - var(--interleave-skip, 0));
+      /* Sidebar items that must already appear before main item #i. */
+      --sidebars-before: max(
+        0,
+        round(
+            down,
+            (var(--i) - var(--interleave-lead) - 1) / var(--interleave-gap),
+            1
+          ) +
+          1
+      );
+      order: calc(var(--i) + var(--sidebars-before));
+    }
+
+    /* Sidebar item #j (1-based). */
+    .layout-shell:has([data-mobile-interleave]) .layout-aside-items > * {
+      order: calc(
+        var(--interleave-lead) + (sibling-index() - 1) *
+          (var(--interleave-gap) + 1) + 1
+      );
+    }
+
+    /* Infinite-scroll sentinels stay after everything else. */
+    .layout-shell:has([data-mobile-interleave]) [data-interleave-end] {
+      order: 2147483647;
+    }
+  }
+}

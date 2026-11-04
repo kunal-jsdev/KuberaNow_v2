@@ -1,0 +1,659 @@
+@import 'tailwindcss';
+@import './mobile-interleave.css';
+
+@theme {
+  --font-sans: var(--font-noto-sans), sans-serif;
+  --font-sans-guj: var(--font-noto-sans-guj);
+  --color-primary: #010874;
+  --color-primary-navy: #000ec0;
+  --color-primary-hover: #000c40;
+  --color-background-color: #f3f4ff;
+  --color-accent-blue: #0092ff;
+  --color-accent-hover: #0080e0;
+  --color-dark-navy1: #00065c;
+  --color-dark-navy2: #000764;
+  --color-dark-navy3: #000ec0;
+  --color-light-navy4: #d7d9ff;
+  --color-light-red: #ffffffbd;
+  --color-light-red-2: #ffffff92;
+  --color-page-bg: #f9fafb;
+  --color-surface: #ffffff;
+  --color-indigo-light: #262d94;
+  --color-indigo-dark: #0d1483;
+  --color-border-soft: #e5ddd0;
+  --color-border-faint: #f3f4f6;
+  --color-text-soft: #374151;
+  --color-text-muted: #6b7280;
+  --color-footer-accent: #22d3ee;
+  --color-footer-text: #d1d5db;
+  --color-footer-muted: #9ca3af;
+  --color-footer-faint: #6b7280;
+  --color-footer-divider: #1f2937;
+  --color-text-disclaimer: #313131;
+  --color-divider: #dadcff;
+  --color-content-link: #1e2eff;
+  --color-dark-blue: #010874;
+  --color-cyan-blue: #00ffee;
+  --text-subheading-big: 22px;
+  --text-subheading-small: 16px;
+  --text-content-big: 16px;
+  --text-content-small: 12px;
+  --text-heading-big: 24px;
+  --text-heading-small: 18px;
+  --color-career-heading: #1a1411;
+  --color-career-dark: #313131;
+  --color-career-muted: #6e6e6e;
+  --color-career-stroke: #dadcff;
+  --color-border-gray: #dedede;
+  --color-career-chip-border: #cacdff;
+  --color-career-chip-bg: #d7d9ff;
+  --color-career-tint: #efefff;
+  --color-ad-leaderboard-bg: #e0e2ff;
+  --color-career-input-border: #cecece;
+  --color-career-accent: #00ffee;
+  --color-background-hover: #00219a;
+  --shadow-dropdown: 0px 0px 6px 0px #00000026;
+  --color-ad-leaderboard: #e0e2ff;
+  --color-main-page-badge-border: #b8bdf7;
+  --color-search-muted: #5a6478;
+  --color-error: #c4313f;
+  --color-error-bg: #fdecee;
+  --color-error-border: #f5c4ca;
+  --color-error-text: #7a3742;
+  --color-skeleton: #efeff8;
+  --background-image-career-search: linear-gradient(
+    268.06deg,
+    #000ec0 48.38%,
+    #000764 106.43%
+  );
+  --background-image-contact-gradient: linear-gradient(
+    268.06deg,
+    #000ec0 2.86%,
+    #000764 106.43%
+  );
+  --shadow-contact-promo:
+    0px 4px 14px rgba(74, 32, 38, 0.08), 0px 1px 2px rgba(74, 32, 38, 0.04);
+  --background-image-contact-ad-gradient: linear-gradient(
+    265.92deg,
+    #000ec0 2.79%,
+    #000764 98.3%
+  );
+  --background-image-job-card-hover:
+    linear-gradient(var(--color-career-tint), var(--color-career-tint)),
+    linear-gradient(
+      301.54deg,
+      var(--color-primary) 0.64%,
+      var(--color-career-stroke) 18.99%,
+      var(--color-career-stroke) 72.82%,
+      var(--color-primary) 100%
+    );
+  --shadow-job-card-hover: 0px 2px 3px rgba(0, 0, 0, 0.1);
+
+  --color-scrollbar-thumb: #dadcff;
+  --color-scrollbar-track: #efefff;
+
+  --breakpoint-xs: 480px;
+
+  --shadow-content-panel: 0px 1px 1px 0px #4a20260a, 0px 1px 2px 0px #4a20260f;
+
+  --color-scrollbar-thumb: #dadcff;
+  --color-scrollbar-track: #efefff;
+  --color-contact-panel: #262d94;
+  --color-contact-panel-border: #0d1483;
+
+  --background-image-contact-gradient: linear-gradient(
+    268.06deg,
+    #000ec0 2.86%,
+    #000764 106.43%
+  );
+  --background-image-about-gradient: linear-gradient(
+    268.06deg,
+    #000ec0 -48.01%,
+    #000764 98.53%
+  );
+  --background-image-contact-ad-gradient: linear-gradient(
+    265.92deg,
+    #000ec0 2.79%,
+    #000764 98.3%
+  );
+
+  --shadow-contact-card: 0px 1px 1px 0px #4a20260a, 0px 1px 2px 0px #4a20260f;
+  --shadow-contact-promo:
+    0px 4px 14px rgba(74, 32, 38, 0.08), 0px 1px 2px rgba(74, 32, 38, 0.04);
+
+  --color-line-ads: #d2c6b3;
+
+  --drop-shadow-share-icon: 0px 0px 4px rgba(0, 0, 0, 0.4);
+}
+
+@keyframes nav-arrow-glide {
+  0% {
+    transform: translateX(-8px);
+    opacity: 0;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(8px);
+    opacity: 0;
+  }
+}
+
+@keyframes new-badge-shine {
+  0% {
+    left: -100%;
+  }
+  50%,
+  100% {
+    left: 200%;
+  }
+}
+
+.new-badge-sparkle {
+  position: absolute;
+  top: 2px;
+  right: 0;
+  display: inline-flex;
+  align-items: center;
+  padding: 1px 4px;
+  font-size: 8px;
+  font-weight: 800;
+  line-height: 10px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #000764;
+  background: linear-gradient(135deg, #00ffee 0%, #00e0d0 50%, #00ffee 100%);
+  border-radius: 3px 3px 3px 0;
+  overflow: hidden;
+  white-space: nowrap;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.new-badge-sparkle::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -100%;
+  width: 60%;
+  height: 200%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.6) 50%,
+    transparent 100%
+  );
+  transform: skewX(-20deg);
+  animation: new-badge-shine 3s ease-in-out infinite;
+}
+
+/* ── Leadership page ─────────────────────────────────────────────── */
+
+/* Mobile: first sidebar widget right after the leaders section
+   (overrides --interleave-lead from mobile-interleave.css). */
+@media (max-width: 47.99rem) {
+  .layout-shell:has(.leadership-page) {
+    --interleave-lead: 1;
+  }
+}
+
+/* Cyan ring around a leader photo: drawn clockwise from 6 o'clock once on
+   load, then stays complete. */
+@property --leader-ring-sweep {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 360deg;
+}
+
+@keyframes leader-ring-draw {
+  from {
+    --leader-ring-sweep: 0deg;
+  }
+  to {
+    --leader-ring-sweep: 360deg;
+  }
+}
+
+.leader-photo-ring {
+  pointer-events: none;
+  mask: conic-gradient(
+    from 180deg,
+    #000 var(--leader-ring-sweep),
+    transparent 0
+  );
+  animation: leader-ring-draw 1.6s ease-in-out 0.2s both;
+}
+
+/* Chairman / CEO card hover: lavender fill, soft shadow and an outline that
+   turns navy only around the top-left and bottom-right corners. */
+.leader-card {
+  transition:
+    background-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.leader-card::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  padding: 1px;
+  border-radius: inherit;
+  /* Navy only near the two corners, fading into the regular stroke colour. */
+  background:
+    radial-gradient(
+      ellipse 45% 75% at 0% 0%,
+      var(--color-primary) 0%,
+      transparent 100%
+    ),
+    radial-gradient(
+      ellipse 38% 55% at 100% 100%,
+      var(--color-primary) 0%,
+      transparent 100%
+    ),
+    var(--color-divider);
+  mask:
+    linear-gradient(#000 0 0) content-box exclude,
+    linear-gradient(#000 0 0);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.leader-card:hover {
+  background-color: var(--color-career-tint);
+  box-shadow: 2px 2px 6px rgba(1, 8, 116, 0.08);
+}
+
+.leader-card:hover::before {
+  opacity: 1;
+}
+
+/* Heads-of-department strip: the list is rendered twice, so -50% loops. */
+@keyframes hod-marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.hod-marquee {
+  animation: hod-marquee 50s linear infinite;
+}
+
+/* HOD card hover / touch-hold: corner-to-corner gradient outline
+   (navy → stroke → stroke → navy). The photo only covers the padding box, so
+   the border-box layer shows through the transparent border. */
+.hod-card[data-active='true'] {
+  border-color: transparent;
+  background:
+    linear-gradient(#fff, #fff) padding-box,
+    linear-gradient(
+        to bottom right,
+        var(--color-primary) 0%,
+        var(--color-divider) 18%,
+        var(--color-divider) 73%,
+        var(--color-primary) 100%
+      )
+      border-box;
+}
+
+@media (hover: hover) {
+  .hod-card:hover {
+    border-color: transparent;
+    background:
+      linear-gradient(#fff, #fff) padding-box,
+      linear-gradient(
+          to bottom right,
+          var(--color-primary) 0%,
+          var(--color-divider) 18%,
+          var(--color-divider) 73%,
+          var(--color-primary) 100%
+        )
+        border-box;
+  }
+}
+
+/* Paused while a card is hovered (mouse) or held (touch — see HodCarousel). */
+.hod-marquee[data-paused='true'] {
+  animation-play-state: paused;
+}
+
+@media (hover: hover) {
+  .hod-marquee:hover {
+    animation-play-state: paused;
+  }
+}
+
+/* Team avatars travel along the dashed arcs; neighbouring rings move in
+   opposite directions (outer and inner left → right, middle right → left). */
+@property --orbit-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes team-orbit {
+  from {
+    --orbit-angle: var(--orbit-from);
+  }
+  to {
+    --orbit-angle: var(--orbit-to);
+  }
+}
+
+.team-orbit-item {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--orbit-avatar);
+  height: var(--orbit-avatar);
+  margin: calc(var(--orbit-avatar) / -2) 0 0 calc(var(--orbit-avatar) / -2);
+  transform: rotate(var(--orbit-angle))
+    translateY(calc(var(--orbit-radius) * -1))
+    rotate(calc(var(--orbit-angle) * -1));
+  animation: team-orbit var(--orbit-duration) linear infinite;
+  animation-delay: var(--orbit-delay);
+  animation-direction: var(--orbit-direction, normal);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .leader-photo-ring {
+    animation: none;
+  }
+
+  .hod-marquee {
+    animation: none;
+  }
+
+  .team-orbit-item {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes whatsapp-fab-tooltip {
+  0%,
+  74%,
+  100% {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  82%,
+  92% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes whatsapp-fab-auto-reveal {
+  0%,
+  100% {
+    height: 0;
+    opacity: 0;
+  }
+  15%,
+  75% {
+    height: 84px;
+    opacity: 1;
+  }
+  90% {
+    height: 0;
+    opacity: 0;
+  }
+}
+
+@layer components {
+  .scrollbar-hide {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .nav-arrow-ghost {
+    animation: nav-arrow-glide 2.2s ease-in-out infinite;
+  }
+
+  /* Gradient arc spinner (navy → cyan) used by the feed "Loading More" banner. */
+  .feed-spinner {
+    background: conic-gradient(
+      from 60deg,
+      transparent 0deg 50deg,
+      var(--color-dark-navy1) 50deg,
+      #22d3ee 360deg
+    );
+    mask: radial-gradient(
+      farthest-side,
+      transparent calc(100% - 2.5px),
+      #000 calc(100% - 2px)
+    );
+  }
+
+  .whatsapp-fab-tooltip {
+    animation: whatsapp-fab-tooltip 8s ease-in-out infinite;
+  }
+
+  .whatsapp-fab-auto-reveal {
+    animation: whatsapp-fab-auto-reveal 3s ease-in-out infinite;
+  }
+
+  .scrollbar-career {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-scrollbar-thumb) var(--color-scrollbar-track);
+  }
+
+  .scrollbar-career::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  .scrollbar-career::-webkit-scrollbar-track {
+    margin-block: 4px;
+    background-color: var(--color-scrollbar-track);
+    border-radius: 9999px;
+  }
+
+  .scrollbar-career::-webkit-scrollbar-thumb {
+    background-color: var(--color-scrollbar-thumb);
+    border-radius: 9999px;
+  }
+
+  .scrollbar-career::-webkit-scrollbar-thumb:hover {
+    background-color: var(--color-career-chip-border);
+  }
+
+  .news-detail-content {
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+
+  .news-detail-content h2,
+  .news-detail-content h3,
+  .news-detail-content h4 {
+    color: var(--color-text-disclaimer);
+    font-weight: 700;
+  }
+
+  .news-detail-content h2 {
+    font-size: var(--text-subheading-big);
+    margin-bottom: 16px;
+    line-height: 28px;
+  }
+
+  .news-detail-content h3 {
+    font-size: 20px;
+    margin-bottom: 16px;
+    line-height: 26px;
+  }
+
+  .news-detail-content h4 {
+    margin-bottom: 16px;
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  .news-detail-content p {
+    color: var(--color-text-disclaimer);
+    font-size: var(--text-content-big);
+    line-height: 22px;
+  }
+
+  .news-detail-content a {
+    color: var(--color-content-link);
+    font-size: var(--text-content-big);
+    font-weight: 600;
+    line-height: 22px;
+    text-decoration: underline dotted;
+    text-underline-offset: 3px;
+  }
+
+  .news-detail-content h2 a,
+  .news-detail-content h3 a,
+  .news-detail-content h4 a {
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+  }
+
+  .news-detail-content ul,
+  .news-detail-content ol {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-left: 1.25rem;
+  }
+
+  .news-detail-content ul {
+    list-style: disc;
+  }
+
+  .news-detail-content ol {
+    list-style: decimal;
+  }
+  @media (max-width: 767px) {
+    .news-detail-content {
+      line-height: 20px;
+    }
+
+    .news-detail-content p {
+      line-height: 20px;
+    }
+
+    .news-detail-content h2,
+    .news-detail-content h3,
+    .news-detail-content h4 {
+      line-height: 20px;
+      margin-bottom: 8px;
+    }
+  }
+}
+@keyframes live-heartbeat {
+  0% {
+    transform: scale(1);
+  }
+  14% {
+    transform: scale(1.32);
+  }
+  28% {
+    transform: scale(1);
+  }
+  42% {
+    transform: scale(1.42);
+  }
+  70% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animate-live-heartbeat {
+  animation: live-heartbeat 1.6s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+  transform-origin: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-live-heartbeat {
+    animation: none;
+  }
+}
+
+@keyframes timelineHighlightFlash {
+  0% {
+    background-color: rgba(220, 235, 255, 0.88);
+  }
+  35% {
+    background-color: rgba(228, 240, 255, 0.72);
+  }
+  70% {
+    background-color: rgba(240, 246, 255, 0.35);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+.timeline-item-highlight {
+  animation: timelineHighlightFlash 2.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes live-ripple {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0.38;
+  }
+  100% {
+    transform: scale(2.25);
+    opacity: 0;
+  }
+}
+
+@keyframes live-ripple-subtle {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.75;
+  }
+  50% {
+    opacity: 0.35;
+  }
+  100% {
+    transform: scale(1.85);
+    opacity: 0;
+  }
+}
+
+.animate-live-ripple {
+  animation: live-ripple 2.4s cubic-bezier(0.12, 0.2, 0.35, 1) infinite;
+  transform-origin: center;
+}
+
+.animate-live-ripple-subtle {
+  animation: live-ripple-subtle 2s cubic-bezier(0.12, 0.2, 0.35, 1) infinite;
+  transform-origin: center;
+}
+
+.animate-live-ripple-subtle-delayed {
+  animation: live-ripple-subtle 2s cubic-bezier(0.12, 0.2, 0.35, 1) infinite;
+  animation-delay: 1s;
+  transform-origin: center;
+}
+
+.animate-live-ripple-delayed {
+  animation: live-ripple 2.4s cubic-bezier(0.12, 0.2, 0.35, 1) infinite;
+  animation-delay: 1.2s;
+  transform-origin: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-live-ripple,
+  .animate-live-ripple-subtle,
+  .animate-live-ripple-subtle-delayed,
+  .animate-live-ripple-delayed {
+    animation: none;
+    opacity: 0;
+  }
+}

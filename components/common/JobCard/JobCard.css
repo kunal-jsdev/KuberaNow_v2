@@ -1,0 +1,29 @@
+.job-card {
+  border: 1px solid var(--color-career-stroke);
+  background-color: var(--color-surface);
+  transition: all 200ms;
+}
+
+.job-card:hover:not(.job-card--expanded) {
+  border-color: transparent;
+  background-color: var(--color-career-tint);
+  box-shadow: var(--shadow-job-card-hover);
+  background-clip: padding-box, border-box;
+  background-origin: border-box;
+  background-image:
+    linear-gradient(var(--color-career-tint), var(--color-career-tint)),
+    linear-gradient(
+      301.54deg,
+      var(--color-primary) 0.64%,
+      var(--color-career-stroke) 18.99%,
+      var(--color-career-stroke) 72.82%,
+      var(--color-primary) 100%
+    );
+}
+
+.job-card--expanded {
+  border-color: var(--color-career-stroke);
+  background-color: var(--color-surface);
+  box-shadow: none;
+  background-image: none;
+}

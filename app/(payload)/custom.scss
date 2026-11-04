@@ -1,0 +1,98 @@
+.collection-list--form-submissions {
+  .list-controls__toggle-where {
+    display: none;
+  }
+
+  .list-controls__toggle-columns {
+    display: none;
+  }
+
+  .cell-whatsappNumber a {
+    pointer-events: none;
+    color: inherit;
+    text-decoration: none;
+    cursor: default;
+  }
+}
+
+.collection-list--sidebars {
+  .list-controls__toggle-where {
+    display: none;
+  }
+
+  .list-controls__toggle-columns {
+    display: none;
+  }
+}
+
+.sidebar-widgets-field--locked {
+  .blocks-field__drawer-toggler,
+  .array-actions__action.array-actions__add,
+  .array-actions__action.array-actions__remove,
+  .array-actions__action.array-actions__duplicate {
+    display: none;
+  }
+}
+/* Hide the timezone picker and add informative text for IST default */
+.timezone-picker-wrapper .timezone-picker,
+.timezone-picker-wrapper label {
+  display: none !important;
+}
+
+.timezone-picker-wrapper::after {
+  content: 'By default, the article will be scheduled in the IST timezone (Asia/Kolkata).';
+  display: block;
+  font-size: 0.875rem;
+  color: var(--theme-elevation-400, #666);
+  margin-top: 0.5rem;
+}
+
+.media-thumbnail-cell {
+  .file__thumbnail {
+    width: calc(var(--base) * 2);
+    overflow: hidden;
+  }
+
+  .thumbnail svg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+// Lottie preview in the upload field. The player is portalled into Payload's
+// own thumbnail element (see LottieUploadField), so it fills whatever box that
+// element already has; the stock file icon behind it is blanked out. The
+// child combinator matters: the player's own svg is nested a level deeper
+// inside __preview, so it stays visible.
+.upload-relationship-details__thumbnail.has-lottie-preview {
+  position: relative;
+
+  > svg,
+  > img {
+    visibility: hidden;
+  }
+}
+
+.lottie-upload-field__preview {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: inherit;
+  pointer-events: none;
+
+  svg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+// The wrapper around the upload field stands in for the `.field-type` element
+// that `.render-fields` would normally space, so it has to carry that bottom
+// margin itself — without it the next row sits right under the description.
+.lottie-upload-field {
+  margin-bottom: var(--spacing-field, var(--base));
+}

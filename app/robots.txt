@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+# Keep framework assets and internal implementation paths out of search results.
+Disallow: /_next/
+Disallow: /api/
+
+# Do not crawl search-result URLs or query-string variants.
+Disallow: /search
+Disallow: /*?*
+
+Sitemap: https://kuberanow.com/sitemap.xml

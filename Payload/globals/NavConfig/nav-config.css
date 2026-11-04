@@ -1,0 +1,103 @@
+/* Hide the expand/collapse chevron arrow since it's always open */
+.flat-blocks .payload-accordion__toggle-button {
+  display: none !important;
+}
+
+/* Prevent clicking the toggle bar from doing anything (optional, but good for UX) */
+.flat-blocks .payload-accordion__toggle {
+  pointer-events: none;
+}
+
+/* Allow pointer events on the drag handle and actions (delete/duplicate) so they still work */
+.flat-blocks .payload-accordion__toggle .array-actions,
+.flat-blocks .payload-accordion__toggle .drag-handle {
+  pointer-events: auto;
+}
+
+/* Forces the accordion content to always be visible, bypassing the collapsed state */
+.flat-blocks .payload-accordion__content {
+  display: block !important;
+  opacity: 1 !important;
+  height: auto !important;
+  overflow: visible !important;
+}
+
+/* Removes the heavy padding and border around the block content so it looks like a flat row */
+.flat-blocks .payload-accordion__content > .render-fields {
+  padding: 0 !important;
+  border: none !important;
+}
+
+/* Ensure the wrapper doesn't have excess margin */
+.flat-blocks .payload-accordion {
+  border: none !important;
+  border-bottom: 1px solid var(--theme-elevation-100) !important;
+  margin-bottom: 0 !important;
+  padding-bottom: 8px !important;
+  padding-top: 8px !important;
+  background: transparent !important;
+}
+
+/* Page / Pages dropdowns: highlight the "News Categories" and "Custom Nav Links"
+   group headings so editors can tell the two sources apart at a glance. */
+.nav-page-select .rs__group-heading {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  margin: 0 !important;
+  padding: 8px 12px !important;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--theme-elevation-1000) !important;
+  background: var(--theme-elevation-150);
+  border-left: 3px solid var(--theme-success-500);
+}
+
+.nav-page-select .rs__group + .rs__group {
+  border-top: 1px solid var(--theme-elevation-200);
+}
+#field-liveUpdates > .array-field__add-row {
+  display: none !important;
+}
+
+#field-liveUpdates .drag-handle,
+#field-liveUpdates [data-sortable-handle],
+#field-liveUpdates .array-field__drag-handle,
+#field-liveUpdates .collapsible__drag {
+  display: none !important;
+  pointer-events: none !important;
+}
+
+#field-liveUpdates .draggable-sortable__item:hover {
+  cursor: default !important;
+}
+
+#field-liveUpdates .array-actions__move-up,
+#field-liveUpdates .array-actions__move-down,
+#field-liveUpdates .array-actions__add {
+  display: none !important;
+}
+
+#field-liveUpdates > .array-field__add-row {
+  display: none !important;
+}
+
+#field-liveUpdates .drag-handle,
+#field-liveUpdates [data-sortable-handle],
+#field-liveUpdates .array-field__drag-handle,
+#field-liveUpdates .collapsible__drag {
+  display: none !important;
+  pointer-events: none !important;
+}
+
+#field-liveUpdates .draggable-sortable__item:hover {
+  cursor: default !important;
+}
+
+#field-liveUpdates .array-actions__move-up,
+#field-liveUpdates .array-actions__move-down,
+#field-liveUpdates .array-actions__add {
+  display: none !important;
+}

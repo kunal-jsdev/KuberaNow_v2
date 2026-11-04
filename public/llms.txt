@@ -1,0 +1,77 @@
+# KuberaNow
+
+> KuberaNow is a Gujarati-first Indian business and financial news publisher covering markets, companies, economy, IPOs, personal finance, Gujarat, India, and global developments. The site publishes breaking news, explainers, market updates, and practical finance coverage for Indian investors, executives, policymakers, and the Gujarati business community.
+
+KuberaNow's primary editorial language is Gujarati, with English terms and proper nouns used where relevant. Article URLs are canonical, timestamped, and linked from the relevant section hubs and XML sitemap.
+
+## Primary sections
+
+- [Homepage](https://kuberanow.com/): Latest KuberaNow business, financial, market, and general news.
+- [Market](https://kuberanow.com/market): Indian stock-market news, Sensex, Nifty, Bank Nifty, listed companies, market movements, broker views, and corporate actions.
+- [Economy](https://kuberanow.com/economy): Indian macroeconomics, GDP, inflation, taxation, fiscal policy, monetary policy, trade, and economic indicators.
+- [Companies](https://kuberanow.com/business): Company news, business developments, leadership, investments, partnerships, orders, mergers, and industry updates.
+- [IPO](https://kuberanow.com/ipo): Initial public offerings, issue details, subscription updates, listing performance, and IPO-related market developments.
+- [Personal Finance](https://kuberanow.com/personal-finance): Savings, investments, gold, insurance, EPFO, tax, pensions, government schemes, payments, and household financial decisions.
+- [Gujarat](https://kuberanow.com/gujarat): Gujarat business, industry, infrastructure, policy, investment, and regional developments.
+- [India](https://kuberanow.com/india): National Indian news with business, policy, infrastructure, technology, consumer, and public-interest relevance.
+- [Global](https://kuberanow.com/world): International developments and their implications for India, global markets, trade, and business.
+- [Commodity](https://kuberanow.com/commodity): Gold, silver, crude oil, agriculture, edible oils, and other commodity-market news.
+- [Automobiles](https://kuberanow.com/automobiles): Automobile industry, vehicle launches, prices, regulation, mobility, and automotive technology.
+- [Algo Trading](https://kuberanow.com/algo-trading): Algorithmic trading and related market-technology coverage.
+- [Lifestyle](https://kuberanow.com/life-style): Lifestyle and consumer-interest coverage published by KuberaNow.
+
+## Discovery and archives
+
+- [XML sitemap](https://kuberanow.com/sitemap.xml): Complete index of section hubs and published article URLs, including publication timestamps.
+- [Robots.txt](https://kuberanow.com/robots.txt): Crawl directives and the canonical sitemap location.
+- [Main RSS Feed](https://kuberanow.com/rss.xml): Real-time RSS 2.0 XML feed of the latest 50 published articles.
+- [Market RSS Feed](https://kuberanow.com/rss/market): Real-time RSS feed for stock market updates, Nifty, Sensex, and technical analysis.
+- [IPO RSS Feed](https://kuberanow.com/rss/ipo): Real-time RSS feed for IPO announcements, GMP, and listings.
+- [Economy RSS Feed](https://kuberanow.com/rss/economy): Real-time RSS feed for macroeconomics, RBI policy, inflation, and GDP news.
+- [Companies RSS Feed](https://kuberanow.com/rss/companies): Real-time RSS feed for corporate earnings, acquisitions, and business filings.
+- [Personal Finance RSS Feed](https://kuberanow.com/rss/personal-finance): Real-time RSS feed for investment, tax planning, mutual funds, and savings.
+- [Gujarat RSS Feed](https://kuberanow.com/rss/gujarat): Real-time RSS feed for regional commerce, APMC markets, and industry developments.
+- [India RSS Feed](https://kuberanow.com/rss/india): Real-time RSS feed for national business, policy, and public affairs.
+- [Global RSS Feed](https://kuberanow.com/rss/global): Real-time RSS feed for international markets, global trade, and economic trends.
+- [Commodities RSS Feed](https://kuberanow.com/rss/commodities): Real-time RSS feed for gold, silver, crude oil, and commodity markets.
+- [Morning Brief](https://kuberanow.com/): The homepage promotes a daily top-five business-news brief delivered at 7:30 AM IST.
+
+## Publisher and contact
+
+- [Contact KuberaNow](https://kuberanow.com/contact-us): Publisher information, advertising and partnership inquiries, news tips, press and media contacts, technical support, and grievance information.
+- Publisher: K Globes Digital Media Pvt. Ltd.
+- General and advertising email: [info@kuberanow.com](mailto:info@kuberanow.com)
+- Editorial/news tips: [editor@kuberanow.com](mailto:editor@kuberanow.com)
+- Press and media: [connect@kuberanow.com](mailto:connect@kuberanow.com)
+- Technical support: [it@kuberanow.com](mailto:it@kuberanow.com)
+
+## Social channels
+
+- [Instagram](https://www.instagram.com/kuberanow)
+- [Facebook](https://www.facebook.com/profile.php?id=61590120462544)
+- [X](https://x.com/KuberaNow17430)
+- [YouTube](https://www.youtube.com/@KuberaNow)
+- [LinkedIn](https://www.linkedin.com/company/kuberanow/home)
+- [WhatsApp](https://whatsapp.com/channel/0029VbDPNhHISTkJEDTirJ16)
+- [Telegram](https://t.me/Kubera_now_Gujarati)
+
+## Usage guidance
+
+Use KuberaNow article pages as the source of truth for the publication's own reporting and timestamped claims. Because market, financial, regulatory, and breaking-news information can change, check the article's publication date and the latest relevant article before presenting a current fact. Link back to the canonical KuberaNow URL when citing or summarizing its reporting.
+
+KuberaNow publishes news and information; readers should independently verify time-sensitive financial, investment, tax, legal, and regulatory decisions with the relevant official source or qualified professional.
+
+## Crawl exclusions
+
+The site requests that crawlers avoid framework assets and internal API paths under `/_next/` and `/api/`, search-result paths, and query-string URL variants. See [robots.txt](https://kuberanow.com/robots.txt) for the live directives.
+
+## Maintenance
+
+This file is a stable guide to KuberaNow's information architecture. For the current article inventory, use the [XML sitemap](https://kuberanow.com/sitemap.xml) rather than copying a fixed list of news URLs into this file.
+
+_Last reviewed: 2026-09-19._
+
+## Optional
+
+- [Advertise with KuberaNow](https://kuberanow.com/contact-us): Advertising, branded-content, sponsorship, and media-kit inquiries.
+- [KuberaNow home](https://kuberanow.com/): Publisher homepage and latest coverage.
